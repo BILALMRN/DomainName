@@ -1,0 +1,3 @@
+<div>
+    @livewire('searchDomain')
+</div>

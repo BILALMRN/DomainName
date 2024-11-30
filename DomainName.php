@@ -60,7 +60,7 @@ final class DomainName extends Extension
     public function enabled()
     {
         // Run migrations
-        Artisan::call('migrate', ['--path' => 'extensions/Others/DomainName/database/migrations/2024_11_19_095356_create_domains_table.php']);
+        Artisan::call('migrate', ['--path' => 'extensions/Others/DomainName/database/migrations/2024_11_30_103407_create_domains_table.php']);
     }
 
     public function boot()

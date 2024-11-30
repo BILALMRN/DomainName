@@ -91,21 +91,18 @@ return new class extends Migration
 
 
 
-        // Create the table only if it doesn't exist
-        if (!Schema::hasTable('domains')) {
-            Schema::create('domains', function (Blueprint $table) {
-                $table->id();
-                $table->foreignIdFor(\App\Models\User::class, 'user_id')->constrained()->nullOnDelete();
-                $table->foreignIdFor(\App\Models\Service::class, 'service_id')->constrained()->nullOnDelete();
-                $table->string('register_name')->nullable(false);
-                $table->string('domain')->unique()->nullable(false);
-                $table->string('ns1', 255)->nullable();
-                $table->string('ns2', 255)->nullable();
-                $table->string('ns3', 255)->nullable();
-                $table->string('ns4', 255)->nullable();
-                $table->timestamps();
-            });
-        }
+        Schema::create('domains', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(\App\Models\User::class, 'user_id')->constrained()->nullOnDelete();
+            $table->foreignIdFor(\App\Models\Service::class, 'service_id')->constrained()->nullOnDelete();
+            $table->string('register_name')->nullable(false);
+            $table->string('domain')->unique()->nullable(false);
+            $table->string('ns1', 255)->nullable();
+            $table->string('ns2', 255)->nullable();
+            $table->string('ns3', 255)->nullable();
+            $table->string('ns4', 255)->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

@@ -22,7 +22,7 @@ final class Namecheap implements IRegister
         $this->username = DomainName::getConfigValue('username');
         $this->apiUser  =  DomainName::getConfigValue('username');
         $this->clientIp = request()->ip();
-        $this->endpoint = 'https://api.sandbox.namecheap.com/xml.response';
+        $this->endpoint = DomainName::getConfigValue('testMode') ? 'https://api.sandbox.namecheap.com/xml.response' : 'https://api.namecheap.com/xml.response';
     }
 
     public function getConfig(): array
